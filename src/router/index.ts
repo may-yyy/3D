@@ -3,24 +3,34 @@ import {
     createWebHashHistory,
     RouteRecordRaw
 } from 'vue-router'
-import Home from '@/views/home.vue'
-import Vuex from '@/views/vuex.vue'
 
 const routes: Array<RouteRecordRaw> = [
     {
         path: '/',
-        name: 'Home',
-        component: Home
+        redirect: '/home',
+        component: () =>import('@/views/home.vue')
     },
     {
-        path: '/vuex',
-        name: 'Vuex',
-        component: Vuex
-    },
-    {
-        path: '/axios',
-        name: 'Axios',
-        component: () => import('@/views/axios.vue') // 懒加载组件
+        path: '/home',
+        name: 'home',
+        component: () => import('@/views/home.vue'), // 懒加载组件
+        children:[
+            {
+               path:'/demo1',
+               name:'demo1',
+               component:() => import('@/views/three/demo1.vue')
+            },
+            {
+                path:'/demo2',
+                name:'demo2',
+                component:() => import('@/views/three/demo2.vue')
+            },
+            {
+                path:'/demo3',
+                name:'demo3',
+                component:() => import('@/views/three/demo3.vue')
+            }
+        ]
     }
 ]
 
