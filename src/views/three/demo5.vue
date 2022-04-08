@@ -35,16 +35,14 @@ const createScene = () => {
 
 //创建网格模型
 const createMesh = () => {
-    //创建一个球体几何对象
-    const geometry = new THREE.SphereGeometry(100, 25, 25);
-    // 创建一个点材质对象
-    const  material = new THREE.PointsMaterial({
-        color: 0x0000ff, //颜色
-        size: 3, //点渲染尺寸
+    //球体
+    var geometry = new THREE.SphereGeometry(100, 25, 25);
+    // 直线基础材质对象
+    var material = new THREE.LineBasicMaterial({
+        color: 0x0000ff
     });
-    //点模型对象  参数：几何体  点材质
-    const point = new THREE.Points(geometry, material);
-    scene.add(point); //网格模型添加到场景中
+    var line = new THREE.Line(geometry, material); //线模型对象
+    scene.add(line); //点模型添加到场景中
 }
 // 创建光源
 const createLight = () => {

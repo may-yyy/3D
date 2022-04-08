@@ -47,6 +47,12 @@ export default {
                 case '/demo3':
                     activeIndex.value = '2';
                     break;
+                case '/helloWorld':
+                    activeIndex.value = '3';
+                    break;
+                case '/demo4':
+                    activeIndex.value = '4';
+                    break;
             }
         })
         let activeIndex = ref('0')
@@ -65,13 +71,21 @@ export default {
                 case '/demo3':
                     activeIndex.value = '2';
                     break;
+                case '/helloWorld':
+                    activeIndex.value = '3';
+                    break;
+                case '/demo4':
+                    activeIndex.value = '4';
+                    break;
             }
         }
 
         const menu = reactive([
             {name: 'demo1', router: '/demo1', index: '0'},
-            {name: 'demo2', router: '/demo2', index: '1'},
-            {name: 'demo3', router: '/demo3', index: '2'},
+            {name: '插入新几何体', router: '/demo2', index: '1'},
+            {name: '材质对象-点材质', router: '/demo3', index: '2'},
+            {name: '材质对象-基础线材质', router: '/demo5', index: '3'},
+            {name: '材质对象-虚线材质', router: '/demo4', index: '4'},
         ])
 
         return {

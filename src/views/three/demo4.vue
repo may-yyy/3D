@@ -35,16 +35,18 @@ const createScene = () => {
 
 //创建网格模型
 const createMesh = () => {
-    //创建一个球体几何对象
-    const geometry = new THREE.SphereGeometry(100, 25, 25);
-    // 创建一个点材质对象
-    const  material = new THREE.PointsMaterial({
-        color: 0x0000ff, //颜色
-        size: 3, //点渲染尺寸
+    //球体
+    var geometry = new THREE.SphereGeometry(100, 25, 25);
+    // 虚线材质对象：产生虚线效果
+    var material = new THREE.LineDashedMaterial({
+        color: 0x0000ff,
+        dashSize: 10,//显示线段的大小。默认为3。
+        gapSize: 5,//间隙的大小。默认为1
     });
-    //点模型对象  参数：几何体  点材质
-    const point = new THREE.Points(geometry, material);
-    scene.add(point); //网格模型添加到场景中
+    var line = new THREE.Line(geometry, material); //线模型对象
+    //  computeLineDistances方法  计算LineDashedMaterial所需的距离数组
+    line.computeLineDistances();
+    scene.add(line)
 }
 // 创建光源
 const createLight = () => {

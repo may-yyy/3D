@@ -29,7 +29,17 @@ const routes: Array<RouteRecordRaw> = [
                 path:'/demo3',
                 name:'demo3',
                 component:() => import('@/views/three/demo3.vue')
-            }
+            },
+            {
+                path:'/demo5',
+                name:'demo5',
+                component:() => import('@/views/three/demo5.vue')
+            },
+            {
+                path:'/demo4',
+                name:'demo4',
+                component:() => import('@/views/three/demo4.vue')
+            },
         ]
     }
 ]
